@@ -1,0 +1,6 @@
+ /* Styles for Desktop devices */
+ .container {
+     max-width: 1440px;
+     padding: 0 120px;
+     margin: 0 auto;
+ }
