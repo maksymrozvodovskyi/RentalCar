@@ -34,7 +34,10 @@ img {
   max-width: 100%;
 }
 
-input {
+input,
+button,
+textarea,
+select {
   font-family: inherit;
 }
 
@@ -44,7 +47,6 @@ a {
 }
 
 button {
-  font-family: inherit;
   cursor: pointer;
   border: none;
   background: none;
