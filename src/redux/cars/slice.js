@@ -3,11 +3,12 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   cars: [],
   currentCar: null,
+  brands: [],
   filters: {
     brand: "",
-    price: "",
-    mileageFrom: "",
-    mileageTo: "",
+    rentalPrice: "",
+    minMileage: "",
+    maxMileage: "",
   },
   page: 1,
   total: 0,
