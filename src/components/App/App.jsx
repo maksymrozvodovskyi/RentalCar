@@ -10,16 +10,13 @@ import Header from "../Header/Header";
 function App() {
   return (
     <>
-      <Header />
-      <div className={css.container}>
-        <Suspense fallback={null}>
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/catalog" element={<CatalogPage />} />
-            <Route path="/catalog/:id" element={<CarDetailsPage />} />
-          </Routes>
-        </Suspense>
-      </div>
+      <Suspense fallback={null}>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/catalog" element={<CatalogPage />} />
+          <Route path="/catalog/:id" element={<CarDetailsPage />} />
+        </Routes>
+      </Suspense>
     </>
   );
 }
