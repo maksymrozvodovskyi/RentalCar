@@ -19,7 +19,8 @@
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    height: 700px;
+    object-fit: cover;
+    height: calc(100% - 71px);
     display: flex;
     align-items: flex-end;
     padding-bottom: 60px;
