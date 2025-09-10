@@ -25,10 +25,16 @@ export default function CarCard({ car }) {
           <span className={css.rentalPrice}>${car.rentalPrice}</span>
         </div>
         <ul className={css.details}>
-          <li>{car.address.split(",").slice(-2).join("")}</li>
+          <li>{car.address.split(",")[1]}</li>
+          <li>{car.address.split(",")[2]}</li>
           <li>{car.rentalCompany}</li>
           <li>{car.type}</li>
-          <li>{car.mileage}</li>
+          <li>
+            {car.mileage.toString().slice(0, 1) +
+              " " +
+              car.mileage.toString().slice(1) +
+              " km"}
+          </li>
         </ul>
         <ReadMore />
       </div>

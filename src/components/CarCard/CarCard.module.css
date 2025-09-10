@@ -61,3 +61,8 @@
     stroke-width: 2px;
     padding: 0;
 }
+
+.favoriteBtn:hover,
+.favoriteBtn:focus {
+    fill: #3470ff;
+}
