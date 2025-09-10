@@ -1,5 +1,6 @@
 import css from "./CarCard.module.css";
 import ReadMore from "../ReadMore/ReadMore";
+import formatMileage from "../../utils/formatMileage.js";
 
 export default function CarCard({ car }) {
   return (
@@ -29,12 +30,7 @@ export default function CarCard({ car }) {
           <li>{car.address.split(",")[2]}</li>
           <li>{car.rentalCompany}</li>
           <li>{car.type}</li>
-          <li>
-            {car.mileage.toString().slice(0, 1) +
-              " " +
-              car.mileage.toString().slice(1) +
-              " km"}
-          </li>
+          <li>{formatMileage(car.mileage)}</li>
         </ul>
         <ReadMore />
       </div>
