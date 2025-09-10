@@ -1,0 +1,39 @@
+.img {
+    border-radius: 14px;
+    width: 276px;
+    height: 268px;
+    object-fit: cover;
+}
+
+.name {
+    font-family: "Manrope", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.25;
+    color: #101828;
+    margin-bottom: 8px;
+}
+
+.model {
+    color: #3470ff;
+}
+
+.textWrapper {
+    margin-top: 16px;
+}
+
+.details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    width: 276px;
+    height: 40px;
+}
+
+.details li {
+    font-family: "Manrope", sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 1.33333;
+    color: #8d929a;
+}

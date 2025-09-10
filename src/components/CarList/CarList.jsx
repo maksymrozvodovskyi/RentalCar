@@ -3,6 +3,8 @@ import { selectAllCars, selectIsLoading } from "../../redux/cars/selectors";
 import { useEffect } from "react";
 import { getCars } from "../../redux/cars/operations";
 import CarCard from "../CarCard/CarCard";
+import css from "./CarList.module.css";
+import container from "../../styles/container.module.css";
 
 export default function CarList({
   page = 1,
@@ -21,8 +23,8 @@ export default function CarList({
   }, [dispatch, page, limit, brand, price, minMil, maxMil]);
 
   return (
-    <div>
-      <ul>
+    <div className={container.container}>
+      <ul className={css.list}>
         {cars.map((car) => (
           <li key={car.id}>
             <CarCard car={car} />
