@@ -4,11 +4,18 @@ import ReadMore from "../ReadMore/ReadMore";
 export default function CarCard({ car }) {
   return (
     <div>
-      <img
-        src={car.img}
-        alt={`${car.brand} ${car.model}`}
-        className={css.img}
-      />
+      <div className={css.imgWrapper}>
+        <img
+          src={car.img}
+          alt={`${car.brand} ${car.model}`}
+          className={css.img}
+        />
+        <button className={css.favoriteBtn}>
+          <svg width="16" height="16">
+            <use href="/public/icons.svg#icon-heart"></use>
+          </svg>
+        </button>
+      </div>
       <div className={css.textWrapper}>
         <div className={css.descriptionWrapper}>
           <h3 className={css.name}>

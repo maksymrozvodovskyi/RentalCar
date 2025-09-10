@@ -48,3 +48,16 @@
     display: flex;
     justify-content: space-between;
 }
+
+.imgWrapper {
+    position: relative;
+}
+
+.favoriteBtn {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    fill: #f2f4f7;
+    stroke-width: 2px;
+    padding: 0;
+}
