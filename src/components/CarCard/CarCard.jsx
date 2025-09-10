@@ -1,8 +1,11 @@
 import css from "./CarCard.module.css";
 import ReadMore from "../ReadMore/ReadMore";
 import formatMileage from "../../utils/formatMileage.js";
+import parseAdress from "../../utils/parseAdress.js";
 
 export default function CarCard({ car }) {
+  const { city, country } = parseAdress(car.address);
+
   return (
     <div>
       <div className={css.imgWrapper}>
@@ -26,8 +29,8 @@ export default function CarCard({ car }) {
           <span className={css.rentalPrice}>${car.rentalPrice}</span>
         </div>
         <ul className={css.details}>
-          <li>{car.address.split(",")[1]}</li>
-          <li>{car.address.split(",")[2]}</li>
+          <li>{city}</li>
+          <li>{country}</li>
           <li>{car.rentalCompany}</li>
           <li>{car.type}</li>
           <li>{formatMileage(car.mileage)}</li>
