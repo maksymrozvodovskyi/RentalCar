@@ -29,11 +29,27 @@ export default function CarCard({ car }) {
           <span className={css.rentalPrice}>${car.rentalPrice}</span>
         </div>
         <ul className={css.details}>
-          <li>{city}</li>
-          <li>{country}</li>
-          <li>{car.rentalCompany}</li>
-          <li>{car.type}</li>
-          <li>{formatMileage(car.mileage)}</li>
+          <li>
+            <span>{city}</span>
+            <svg width="2" height="16" className={css.line}>
+              <use href="/icons.svg#icon-line"></use>
+            </svg>
+            <span>{country}</span>
+            <svg width="2" height="16" className={css.line}>
+              <use href="/icons.svg#icon-line"></use>
+            </svg>
+            <span>{car.rentalCompany}</span>
+            <svg width="2" height="16" className={css.line}>
+              <use href="/icons.svg#icon-line"></use>
+            </svg>
+          </li>
+          <li>
+            <span>{car.type}</span>
+            <svg width="2" height="16" className={css.line}>
+              <use href="/icons.svg#icon-line"></use>
+            </svg>
+            <span>{formatMileage(car.mileage)}</span>
+          </li>
         </ul>
         <ReadMore />
       </div>
