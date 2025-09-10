@@ -3,7 +3,7 @@ export default function parseAddress(address) {
   let country = "";
 
   if (address !== undefined) {
-    const words = address.split(",").map((word) => word.trim());
+    const words = address.split(",").map((word) => word.trim()); // розбив рядок по комам і видалив лишні пробіли
     city = words[1];
     country = words[2];
   }

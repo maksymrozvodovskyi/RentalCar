@@ -4,9 +4,11 @@ import container from "../../styles/container.module.css";
 
 export default function Hero() {
   const navigate = useNavigate();
+
   const handleClick = () => {
     navigate("/catalog");
   };
+
   return (
     <section className={css.hero}>
       <div className={container.container}>
