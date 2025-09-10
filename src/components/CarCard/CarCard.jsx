@@ -10,9 +10,13 @@ export default function CarCard({ car }) {
         className={css.img}
       />
       <div className={css.textWrapper}>
-        <h3 className={css.name}>
-          {car.brand} <span className={css.model}>{car.model}</span>, {car.year}
-        </h3>
+        <div className={css.descriptionWrapper}>
+          <h3 className={css.name}>
+            {car.brand} <span className={css.model}>{car.model}</span>,{" "}
+            {car.year}
+          </h3>
+          <span className={css.rentalPrice}>${car.rentalPrice}</span>
+        </div>
         <ul className={css.details}>
           <li>{car.address.split(",").slice(-2).join("")}</li>
           <li>{car.rentalCompany}</li>

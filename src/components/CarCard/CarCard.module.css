@@ -31,9 +31,20 @@
 }
 
 .details li {
-    font-family: "Manrope", sans-serif;
     font-weight: 400;
     font-size: 12px;
     line-height: 1.33333;
     color: #8d929a;
+}
+
+.rentalPrice {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.25;
+    color: #101828;
+}
+
+.descriptionWrapper {
+    display: flex;
+    justify-content: space-between;
 }
