@@ -1,4 +1,4 @@
-export default function parseAdress(address) {
+export default function parseAddress(address) {
   let city = "";
   let country = "";
 

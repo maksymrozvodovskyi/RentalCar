@@ -1,10 +1,10 @@
 import css from "./CarCard.module.css";
 import ReadMore from "../ReadMore/ReadMore";
 import formatMileage from "../../utils/formatMileage.js";
-import parseAdress from "../../utils/parseAdress.js";
+import parseAddress from "../../utils/parseAddress.js";
 
 export default function CarCard({ car }) {
-  const { city, country } = parseAdress(car.address);
+  const { city, country } = parseAddress(car.address);
 
   return (
     <div>
