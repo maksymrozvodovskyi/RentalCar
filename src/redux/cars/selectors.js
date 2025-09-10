@@ -1,11 +1,7 @@
-export const selectCurrentCar = (state) => {
-  state.cars.currentCar;
-};
+export const selectAllCars = (state) => state.cars.cars;
 
-export const selectIsLoading = (state) => {
-  state.cars.isLoading;
-};
+export const selectCurrentCar = (state) => state.cars.currentCar;
 
-export const selectEror = (state) => {
-  state.cars.error;
-};
+export const selectIsLoading = (state) => state.cars.isLoading;
+
+export const selectEror = (state) => state.cars.error;

@@ -29,8 +29,9 @@ const carsSlice = createSlice({
       })
       .addCase(getCars.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.cars = action.payload;
-        state.total = action.payload.total;
+        state.cars = action.payload.cars;
+        state.total = action.payload.totalCars;
+        state.page = action.payload.page;
       })
       .addCase(getCars.rejected, (state, action) => {
         state.isLoading = false;
