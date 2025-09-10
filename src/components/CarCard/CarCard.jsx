@@ -19,7 +19,7 @@ export default function CarCard({ car }) {
           <li>{car.type}</li>
           <li>{car.mileage}</li>
         </ul>
-        <ReadMore id={car.id} />
+        <ReadMore />
       </div>
     </div>
   );
