@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getCarById } from "./operations";
+import { getCarById, getCars } from "./operations";
 
 const initialState = {
   cars: [],
@@ -23,6 +23,19 @@ const carsSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder
+      .addCase(getCars.pending, (state) => {
+        state.isLoading = true;
+        state.error = null;
+      })
+      .addCase(getCars.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.cars = action.payload;
+        state.total = action.payload.total;
+      })
+      .addCase(getCars.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
+      })
       .addCase(getCarById.pending, (state) => {
         state.isLoading = true;
         state.error = null;
