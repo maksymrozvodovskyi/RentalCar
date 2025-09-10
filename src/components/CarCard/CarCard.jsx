@@ -1,9 +1,14 @@
 import css from "./CarCard.module.css";
+import ReadMore from "../ReadMore/ReadMore";
 
 export default function CarCard({ car }) {
   return (
     <div>
-      <img src={car.img} className={css.img} />
+      <img
+        src={car.img}
+        alt={`${car.brand} ${car.model}`}
+        className={css.img}
+      />
       <div className={css.textWrapper}>
         <h3 className={css.name}>
           {car.brand} <span className={css.model}>{car.model}</span>, {car.year}
@@ -14,6 +19,7 @@ export default function CarCard({ car }) {
           <li>{car.type}</li>
           <li>{car.mileage}</li>
         </ul>
+        <ReadMore id={car.id} />
       </div>
     </div>
   );

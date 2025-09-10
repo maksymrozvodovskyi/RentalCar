@@ -1,0 +1,15 @@
+.readMore {
+    border-radius: 12px;
+    padding: 12px 97px;
+    background: #3470ff;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 1.25;
+    color: #fff;
+    transition: background 0.3s ease-in;
+}
+
+.readMore:hover,
+.readMore:focus {
+    background: #0b44cd;
+}
