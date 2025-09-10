@@ -1,8 +1,12 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import css from "./Hero.module.css";
 import container from "../../styles/container.module.css";
 
 export default function Hero() {
+  const navigate = useNavigate();
+  const handleClick = () => {
+    navigate("/catalog");
+  };
   return (
     <section className={css.hero}>
       <div className={container.container}>
@@ -11,9 +15,9 @@ export default function Hero() {
           <p className={css.description}>
             Reliable and budget-friendly rentals for any journey
           </p>
-          <Link to="/catalog" className={css.link}>
+          <button className={css.link} onClick={handleClick}>
             View Catalog
-          </Link>
+          </button>
         </div>
       </div>
     </section>
