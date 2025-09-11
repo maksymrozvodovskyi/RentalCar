@@ -4,6 +4,7 @@ import { selectAllCars, selectBrands } from "../../redux/cars/selectors";
 import { useEffect, useState } from "react";
 import { getBrands } from "../../redux/cars/operations";
 import Select, { components } from "react-select";
+import MileageInput from "../MileageInput/MileageInput";
 
 export default function Filter() {
   const [selectedBrand, setSelectedBrand] = useState(null);
@@ -205,6 +206,9 @@ export default function Filter() {
           value={selectedPrice}
           onChange={handlePriceChange}
         />
+      </div>
+      <div>
+        <MileageInput />
       </div>
     </div>
   );

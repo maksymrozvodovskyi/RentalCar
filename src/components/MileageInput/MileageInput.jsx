@@ -1,29 +1,38 @@
 import { useState } from "react";
 import css from "./MileageInput.module.css";
+import formatMileageInput from "../../utils/formatMileageInput";
 
 export default function MileageInput() {
   const [to, setTo] = useState("");
   const [from, setFrom] = useState("");
+
+  const handleFromChange = (e) => {
+    const num = e.target.value.replace(/\D/g, "");
+    setFrom(num);
+  };
+
+  const handleToChange = (e) => {
+    const num = e.target.value.replace(/\D/g, "");
+    setTo(num);
+  };
+
   return (
-    <div>
-      <label>Сar mileage / km</label>
+    <div className={css.wrapper}>
+      <label className={css.label}>Сar mileage / km</label>
       <div>
         <input
-          type="number"
+          type="type"
           placeholder="From"
-          value={from}
-          onChange={(event) => {
-            setFrom(event.target.value);
-          }}
+          value={from ? `From ${formatMileageInput(from)}` : "From"}
+          onChange={handleFromChange}
+          className={css.inputFirst}
         ></input>
-        <span></span>
         <input
-          type="number"
+          type="type"
           placeholder="To"
-          value={to}
-          onChange={(event) => {
-            setTo(event.target.value);
-          }}
+          value={to ? `To ${formatMileageInput(to)}` : "To"}
+          onChange={handleToChange}
+          className={css.inputSecond}
         ></input>
       </div>
     </div>
