@@ -52,7 +52,7 @@ export default function Filter() {
 
   return (
     <div className={css.wrapper}>
-      <div className={css.selectBrandWrap}>
+      <div className={css.selectWrap}>
         <label className={css.label}>Car brand</label>
         <Select
           options={options}
@@ -89,7 +89,9 @@ export default function Filter() {
         setLocalMax={setLocalMax}
         setLocalMin={setLocalMin}
       />
-      <button onClick={handleSearch}>Search</button>
+      <button onClick={handleSearch} className={css.filterBtn}>
+        Search
+      </button>
     </div>
   );
 }
