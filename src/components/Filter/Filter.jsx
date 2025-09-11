@@ -3,7 +3,7 @@ import css from "./Filter.module.css";
 import { selectAllCars, selectBrands } from "../../redux/cars/selectors";
 import { useEffect, useState } from "react";
 import { getBrands } from "../../redux/cars/operations";
-import Select from "react-select";
+import Select, { components } from "react-select";
 
 export default function Filter() {
   const [selectedBrand, setSelectedBrand] = useState(null);
@@ -21,7 +21,18 @@ export default function Filter() {
     label: brand,
   }));
 
-  const priceOptions = [];
+  const priceOptions = [
+    { value: 30, label: "30" },
+    { value: 40, label: "40" },
+    { value: 50, label: "50" },
+    { value: 60, label: "60" },
+    { value: 70, label: "70" },
+    { value: 80, label: "80" },
+    { value: 90, label: "90" },
+    { value: 100, label: "100" },
+    { value: 110, label: "110" },
+    { value: 120, label: "120" },
+  ];
 
   const handleBrandChange = (option) => {
     setSelectedBrand(option);
@@ -59,7 +70,11 @@ export default function Filter() {
       ":active": {
         backgroundColor: "#fff",
       },
-      marginBottom: "-4px",
+      padding: "0 18px",
+      marginBottom: "12px",
+      ":last-child": {
+        marginBottom: 0,
+      },
     }),
     menu: (provided) => ({
       ...provided,
@@ -67,6 +82,10 @@ export default function Filter() {
       width: "204px",
       border: "1px solid #f7f7f7",
       boxShadow: "0 4px 36px 0 rgba(0, 0, 0, 0.02)",
+    }),
+    menuList: (provider) => ({
+      ...provider,
+      padding: "14px 0",
     }),
     singleValue: (provided) => ({
       ...provided,
@@ -90,7 +109,7 @@ export default function Filter() {
     control: (provided) => ({
       ...provided,
       borderRadius: "12px",
-      width: "204px",
+      width: "196px",
       height: "44px",
       background: "#f7f7f7",
       fontFamily: "Manrope, sans-serif",
@@ -114,14 +133,25 @@ export default function Filter() {
       ":active": {
         backgroundColor: "#fff",
       },
-      marginBottom: "-4px",
+      marginBottom: "8px",
+      padding: "0 18px",
+      ":last-child": {
+        marginBottom: 0,
+      },
     }),
     menu: (provided) => ({
       ...provided,
+      padding: "14px 0",
       borderRadius: "12px",
-      width: "204px",
+      width: "196px",
       border: "1px solid #f7f7f7",
       boxShadow: "0 4px 36px 0 rgba(0, 0, 0, 0.02)",
+    }),
+    menuList: (provided) => ({
+      ...provided,
+      maxHeight: "160px",
+      width: "196px",
+      overflowY: "auto",
     }),
     singleValue: (provided) => ({
       ...provided,
@@ -140,6 +170,12 @@ export default function Filter() {
       color: "#101828",
     }),
   };
+
+  const CustomSingleValue = (props) => (
+    <components.SingleValue {...props}>
+      To ${props.data.value}
+    </components.SingleValue>
+  );
 
   return (
     <div className={css.wrapper}>
@@ -164,6 +200,7 @@ export default function Filter() {
           styles={customSelectPriceStyles}
           components={{
             IndicatorSeparator: () => null,
+            SingleValue: CustomSingleValue,
           }}
           value={selectedPrice}
           onChange={handlePriceChange}
