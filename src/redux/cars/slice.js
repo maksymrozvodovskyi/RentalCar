@@ -25,7 +25,7 @@ const carsSlice = createSlice({
     setFilters(state, action) {
       state.filters = { ...state.filters, ...action.payload };
     },
-    resetFilters(state, action) {
+    resetFilters(state) {
       state.filters = {
         brand: "",
         rentalPrice: "",

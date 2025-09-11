@@ -3,6 +3,7 @@
     padding: 24px 120px;
     display: flex;
     flex-direction: row;
+    background: #f2f4f7;
 }
 
 .nav {
