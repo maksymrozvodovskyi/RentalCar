@@ -3,7 +3,7 @@ import css from "./Filter.module.css";
 import { selectBrands, selectMileage } from "../../redux/cars/selectors";
 import { useEffect, useState } from "react";
 import { getBrands, getCars } from "../../redux/cars/operations";
-import Select, { components } from "react-select";
+import Select from "react-select";
 import MileageInput from "../MileageInput/MileageInput";
 import { customSelectBrandStyles } from "./customSelectBrandStyles";
 import { customSelectPriceStyles } from "./customSelectPriceStyles";
@@ -15,6 +15,9 @@ export default function Filter() {
   const dispatch = useDispatch();
   const brands = useSelector(selectBrands);
   const filters = useSelector(selectMileage);
+
+  const [localMin, setLocalMin] = useState(filters.minMileage || "");
+  const [localMax, setLocalMax] = useState(filters.maxMileage || "");
 
   useEffect(() => {
     dispatch(getBrands());
@@ -34,14 +37,15 @@ export default function Filter() {
   };
 
   const handleSearch = () => {
+    dispatch(setFilters({ minMileage: localMin, maxMileage: localMax }));
     dispatch(
       getCars({
         page: 1,
         limit: 12,
         brand: filters.brand,
         price: filters.rentalPrice,
-        minMileage: filters.minMileage,
-        maxMileage: filters.maxMileage,
+        minMileage: localMin,
+        maxMileage: localMax,
       })
     );
   };
@@ -79,7 +83,12 @@ export default function Filter() {
           onChange={handlePriceChange}
         />
       </div>
-      <MileageInput />
+      <MileageInput
+        localMin={localMin}
+        localMax={localMax}
+        setLocalMax={setLocalMax}
+        setLocalMin={setLocalMin}
+      />
       <button onClick={handleSearch}>Search</button>
     </div>
   );
