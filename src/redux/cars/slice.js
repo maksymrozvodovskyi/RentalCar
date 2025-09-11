@@ -39,6 +39,9 @@ const carsSlice = createSlice({
       state.total = 0;
       state.error = null;
     },
+    nextPage(state) {
+      state.page += 1;
+    },
   },
   extraReducers: (builder) => {
     builder
