@@ -1,0 +1,21 @@
+.wrapper {
+    margin-top: 84px;
+    margin-bottom: 56px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 16px;
+}
+
+.label {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 1.33;
+    color: #8d929a;
+}
+
+.selectWrap {
+    display: flex;
+    flex-direction: column;
+    row-gap: 8px;
+}

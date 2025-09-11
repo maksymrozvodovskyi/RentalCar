@@ -5,6 +5,7 @@ const initialState = {
   cars: [],
   currentCar: null,
   brands: [],
+  prices: [],
   filters: {
     brand: "",
     rentalPrice: "",
@@ -55,6 +56,7 @@ const carsSlice = createSlice({
       })
       .addCase(getBrands.fulfilled, (state, action) => {
         state.brands = action.payload;
+        state.isLoading = false;
       })
       .addCase(getBrands.rejected, (state, action) => {
         state.isLoading = false;
