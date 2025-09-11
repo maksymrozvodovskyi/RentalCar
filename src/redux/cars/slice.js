@@ -21,7 +21,11 @@ const initialState = {
 const carsSlice = createSlice({
   name: "cars",
   initialState,
-  reducers: {},
+  reducers: {
+    setFilters(state, action) {
+      state.filters = { ...state.filters, ...action.payload };
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(getCars.pending, (state) => {
@@ -65,4 +69,5 @@ const carsSlice = createSlice({
   },
 });
 
+export const { setFilters } = carsSlice.actions;
 export default carsSlice.reducer;

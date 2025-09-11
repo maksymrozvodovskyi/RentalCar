@@ -1,21 +1,20 @@
 import { useDispatch, useSelector } from "react-redux";
 import css from "./Filter.module.css";
-import { selectBrands } from "../../redux/cars/selectors";
+import { selectBrands, selectMileage } from "../../redux/cars/selectors";
 import { useEffect, useState } from "react";
-import { getBrands } from "../../redux/cars/operations";
+import { getBrands, getCars } from "../../redux/cars/operations";
 import Select, { components } from "react-select";
 import MileageInput from "../MileageInput/MileageInput";
 import { customSelectBrandStyles } from "./customSelectBrandStyles";
 import { customSelectPriceStyles } from "./customSelectPriceStyles";
 import CustomSingleValue from "../CustomSingleValue/CustomSingleValue";
 import { priceOptions } from "../../constants/index";
+import { setFilters } from "../../redux/cars/slice";
 
 export default function Filter() {
-  const [selectedBrand, setSelectedBrand] = useState(null);
-  const [selectedPrice, setSelectedPrice] = useState(null);
-
   const dispatch = useDispatch();
   const brands = useSelector(selectBrands);
+  const filters = useSelector(selectMileage);
 
   useEffect(() => {
     dispatch(getBrands());
@@ -27,11 +26,24 @@ export default function Filter() {
   }));
 
   const handleBrandChange = (option) => {
-    setSelectedBrand(option);
+    dispatch(setFilters({ brand: option?.value || "" }));
   };
 
   const handlePriceChange = (option) => {
-    setSelectedPrice(option);
+    dispatch(setFilters({ rentalPrice: option?.value || "" }));
+  };
+
+  const handleSearch = () => {
+    dispatch(
+      getCars({
+        page: 1,
+        limit: 12,
+        brand: filters.brand,
+        price: filters.rentalPrice,
+        minMileage: filters.minMileage,
+        maxMileage: filters.maxMileage,
+      })
+    );
   };
 
   return (
@@ -45,7 +57,7 @@ export default function Filter() {
           components={{
             IndicatorSeparator: () => null,
           }}
-          value={selectedBrand}
+          value={options.find((o) => o.value === filters.brand) || null}
           onChange={handleBrandChange}
         />
       </div>
@@ -61,11 +73,14 @@ export default function Filter() {
               <CustomSingleValue {...props} prefix="To $" /> // тут передаю префікс "To $"" аби відображалось в селекті + виніс кастомний компонент
             ),
           }}
-          value={selectedPrice}
+          value={
+            priceOptions.find((o) => o.value === filters.rentalPrice) || null
+          }
           onChange={handlePriceChange}
         />
       </div>
       <MileageInput />
+      <button onClick={handleSearch}>Search</button>
     </div>
   );
 }
