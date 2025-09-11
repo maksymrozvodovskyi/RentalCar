@@ -25,12 +25,27 @@ const carsSlice = createSlice({
     setFilters(state, action) {
       state.filters = { ...state.filters, ...action.payload };
     },
+    resetFilters(state, action) {
+      state.filters = {
+        brand: "",
+        rentalPrice: "",
+        minMileage: "",
+        maxMileage: "",
+      };
+    },
+    resetCars(state) {
+      state.cars = [];
+      state.page = 1;
+      state.total = 0;
+      state.error = null;
+    },
   },
   extraReducers: (builder) => {
     builder
       .addCase(getCars.pending, (state) => {
         state.isLoading = true;
         state.error = null;
+        state.cars = [];
       })
       .addCase(getCars.fulfilled, (state, action) => {
         state.isLoading = false;
@@ -69,5 +84,5 @@ const carsSlice = createSlice({
   },
 });
 
-export const { setFilters } = carsSlice.actions;
+export const { setFilters, resetFilters, resetCars } = carsSlice.actions;
 export default carsSlice.reducer;

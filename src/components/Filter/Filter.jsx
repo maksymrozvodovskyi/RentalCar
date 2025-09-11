@@ -9,7 +9,7 @@ import { customSelectBrandStyles } from "./customSelectBrandStyles";
 import { customSelectPriceStyles } from "./customSelectPriceStyles";
 import CustomSingleValue from "../CustomSingleValue/CustomSingleValue";
 import { priceOptions } from "../../constants/index";
-import { setFilters } from "../../redux/cars/slice";
+import { resetCars, setFilters } from "../../redux/cars/slice";
 
 export default function Filter() {
   const dispatch = useDispatch();
@@ -37,6 +37,7 @@ export default function Filter() {
   };
 
   const handleSearch = () => {
+    dispatch(resetCars());
     dispatch(setFilters({ minMileage: localMin, maxMileage: localMax }));
     dispatch(
       getCars({
@@ -63,6 +64,7 @@ export default function Filter() {
           }}
           value={options.find((o) => o.value === filters.brand) || null}
           onChange={handleBrandChange}
+          isClearable
         />
       </div>
       <div className={css.selectWrap}>
@@ -81,6 +83,7 @@ export default function Filter() {
             priceOptions.find((o) => o.value === filters.rentalPrice) || null
           }
           onChange={handlePriceChange}
+          isClearable
         />
       </div>
       <MileageInput
