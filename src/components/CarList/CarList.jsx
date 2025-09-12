@@ -5,6 +5,7 @@ import { getCars } from "../../redux/cars/operations";
 import CarCard from "../CarCard/CarCard";
 import css from "./CarList.module.css";
 import container from "../../styles/container.module.css";
+import LoadMore from "../LoadMore/LoadMore";
 
 export default function CarList({
   page = 1,
@@ -23,14 +24,17 @@ export default function CarList({
   }, [dispatch, page, limit, brand, price, minMil, maxMil]);
 
   return (
-    <div className={container.container}>
-      <ul className={css.list}>
-        {cars.map((car) => (
-          <li key={car.id}>
-            <CarCard car={car} />
-          </li>
-        ))}
-      </ul>
-    </div>
+    <section className={css.section}>
+      <div className={container.container}>
+        <ul className={css.list}>
+          {cars.map((car) => (
+            <li key={car.id}>
+              <CarCard car={car} />
+            </li>
+          ))}
+        </ul>
+      </div>
+      <LoadMore />
+    </section>
   );
 }

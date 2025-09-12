@@ -52,49 +52,51 @@ export default function Filter() {
   };
 
   return (
-    <div className={css.wrapper}>
-      <div className={css.selectWrap}>
-        <label className={css.label}>Car brand</label>
-        <Select
-          options={options}
-          placeholder="Choose a brand"
-          styles={customSelectBrandStyles}
-          components={{
-            IndicatorSeparator: () => null,
-          }}
-          value={options.find((o) => o.value === filters.brand) || null}
-          onChange={handleBrandChange}
-          isClearable
+    <section>
+      <div className={css.wrapper}>
+        <div className={css.selectWrap}>
+          <label className={css.label}>Car brand</label>
+          <Select
+            options={options}
+            placeholder="Choose a brand"
+            styles={customSelectBrandStyles}
+            components={{
+              IndicatorSeparator: () => null,
+            }}
+            value={options.find((o) => o.value === filters.brand) || null}
+            onChange={handleBrandChange}
+            isClearable
+          />
+        </div>
+        <div className={css.selectWrap}>
+          <label className={css.label}>Price/ 1 hour</label>
+          <Select
+            options={priceOptions}
+            placeholder="Choose a price"
+            styles={customSelectPriceStyles}
+            components={{
+              IndicatorSeparator: () => null,
+              SingleValue: (props) => (
+                <CustomSingleValue {...props} prefix="To $" /> // тут передаю префікс "To $"" аби відображалось в селекті + виніс кастомний компонент
+              ),
+            }}
+            value={
+              priceOptions.find((o) => o.value === filters.rentalPrice) || null
+            }
+            onChange={handlePriceChange}
+            isClearable
+          />
+        </div>
+        <MileageInput
+          localMin={localMin}
+          localMax={localMax}
+          setLocalMax={setLocalMax}
+          setLocalMin={setLocalMin}
         />
+        <button onClick={handleSearch} className={css.filterBtn}>
+          Search
+        </button>
       </div>
-      <div className={css.selectWrap}>
-        <label className={css.label}>Price/ 1 hour</label>
-        <Select
-          options={priceOptions}
-          placeholder="Choose a price"
-          styles={customSelectPriceStyles}
-          components={{
-            IndicatorSeparator: () => null,
-            SingleValue: (props) => (
-              <CustomSingleValue {...props} prefix="To $" /> // тут передаю префікс "To $"" аби відображалось в селекті + виніс кастомний компонент
-            ),
-          }}
-          value={
-            priceOptions.find((o) => o.value === filters.rentalPrice) || null
-          }
-          onChange={handlePriceChange}
-          isClearable
-        />
-      </div>
-      <MileageInput
-        localMin={localMin}
-        localMax={localMax}
-        setLocalMax={setLocalMax}
-        setLocalMin={setLocalMin}
-      />
-      <button onClick={handleSearch} className={css.filterBtn}>
-        Search
-      </button>
-    </div>
+    </section>
   );
 }

@@ -1,0 +1,17 @@
+.btn {
+    border: 1px solid #3470ff;
+    border-radius: 12px;
+    padding: 12px 51px;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 1.25;
+    color: #101828;
+    display: block;
+    margin: 80px auto 0 auto;
+    transition: border 0.3s ease-in;
+}
+
+.btn:hover,
+.btn:focus {
+    border-color: #0b44cd;
+}

@@ -48,13 +48,15 @@ const carsSlice = createSlice({
       .addCase(getCars.pending, (state) => {
         state.isLoading = true;
         state.error = null;
-        state.cars = [];
       })
       .addCase(getCars.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.cars = action.payload.cars;
+        if (state.page === 1) {
+          state.cars = action.payload.cars;
+        } else {
+          state.cars = [...state.cars, ...action.payload.cars];
+        }
         state.total = action.payload.totalCars;
-        state.page = action.payload.page;
       })
       .addCase(getCars.rejected, (state, action) => {
         state.isLoading = false;
@@ -87,5 +89,6 @@ const carsSlice = createSlice({
   },
 });
 
-export const { setFilters, resetFilters, resetCars } = carsSlice.actions;
+export const { setFilters, resetFilters, resetCars, nextPage } =
+  carsSlice.actions;
 export default carsSlice.reducer;
