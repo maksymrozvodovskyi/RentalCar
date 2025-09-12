@@ -70,6 +70,7 @@
     fill: #f2f4f7;
     stroke-width: 2px;
     padding: 0;
+    transition: fill 0.3s ease-in;
 }
 
 .favoriteBtn:hover,

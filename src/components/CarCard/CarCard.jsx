@@ -2,9 +2,24 @@ import css from "./CarCard.module.css";
 import ReadMore from "../ReadMore/ReadMore";
 import formatMileage from "../../utils/formatMileage.js";
 import parseAddress from "../../utils/parseAddress.js";
+import { useDispatch, useSelector } from "react-redux";
+import { useMemo } from "react";
+import { selectFavorites } from "../../redux/favoritesCars/selectors.js";
+import { toggleFavorite } from "../../redux/favoritesCars/slice.js";
 
 export default function CarCard({ car }) {
   const { city, country } = parseAddress(car.address);
+  const dispatch = useDispatch();
+  const favorites = useSelector(selectFavorites);
+
+  const isFavorites = useMemo(
+    () => favorites.some((item) => item.id === car.id),
+    [favorites, car.id]
+  );
+
+  const handleFavoriteClick = () => {
+    dispatch(toggleFavorite(car));
+  };
 
   return (
     <div>
@@ -14,9 +29,15 @@ export default function CarCard({ car }) {
           alt={`${car.brand} ${car.model}`}
           className={css.img}
         />
-        <button className={css.favoriteBtn}>
+        <button className={css.favoriteBtn} onClick={handleFavoriteClick}>
           <svg width="16" height="16">
-            <use href="/public/icons.svg#icon-heart"></use>
+            <use
+              href={
+                isFavorites
+                  ? "/icons.svg#icon-heart-fill"
+                  : "/icons.svg#icon-heart"
+              }
+            ></use>
           </svg>
         </button>
       </div>
