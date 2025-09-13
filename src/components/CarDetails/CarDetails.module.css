@@ -128,3 +128,13 @@
     flex-direction: column;
     gap: 16px;
 }
+
+.overallWrapper {
+    display: flex;
+    gap: 72px;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+}
