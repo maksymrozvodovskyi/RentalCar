@@ -30,7 +30,6 @@ export default function CarDetails() {
       {/* <div>
         <img width={640} height={512} src={car.img} className={css.img} />
       </div> */}
-
       <div className={css.infoWrapper}>
         <div className={css.mainInfo}>
           <h2 className={css.name}>
@@ -97,6 +96,31 @@ export default function CarDetails() {
                 </svg>
                 Engine Size: {car.engineSize}
               </li>
+            </ul>
+          </div>
+        </div>
+        <div>
+          <h3 className={css.titte}>Accessories and functionalities:</h3>
+          <div className={css.acsAndFuncWrap}>
+            <ul className={css.acsAndFuncList}>
+              {car.accessories.map((accessorie, key) => (
+                <li key={key}>
+                  <svg width={16} height={16} className={css.checkCircle}>
+                    <use href="/public/icons.svg#icon-check-circle"></use>
+                  </svg>
+                  {accessorie}
+                </li>
+              ))}
+            </ul>
+            <ul className={css.acsAndFuncList}>
+              {car.functionalities.map((functionality, key) => (
+                <li key={key}>
+                  <svg width={16} height={16} className={css.checkCircle}>
+                    <use href="/public/icons.svg#icon-check-circle"></use>
+                  </svg>
+                  {functionality}
+                </li>
+              ))}
             </ul>
           </div>
         </div>
