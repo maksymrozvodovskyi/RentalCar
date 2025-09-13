@@ -6,6 +6,7 @@ import CarCard from "../CarCard/CarCard";
 import css from "./CarList.module.css";
 import container from "../../styles/container.module.css";
 import LoadMore from "../LoadMore/LoadMore";
+import { resetCars } from "../../redux/cars/slice";
 
 export default function CarList({
   page = 1,
@@ -20,6 +21,7 @@ export default function CarList({
   const isLoading = useSelector(selectIsLoading);
 
   useEffect(() => {
+    dispatch(resetCars());
     dispatch(getCars({ page, limit, brand, price, minMil, maxMil }));
   }, [dispatch, page, limit, brand, price, minMil, maxMil]);
 

@@ -15,6 +15,7 @@ const initialState = {
   page: 1,
   total: 0,
   isLoading: false,
+  isLoadingMore: false,
   error: null,
 };
 
@@ -46,20 +47,29 @@ const carsSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(getCars.pending, (state) => {
-        state.isLoading = true;
+        if (state.page === 1) {
+          state.isLoading = true;
+        } else {
+          state.isLoadingMore = true;
+        }
         state.error = null;
       })
       .addCase(getCars.fulfilled, (state, action) => {
-        state.isLoading = false;
         if (state.page === 1) {
           state.cars = action.payload.cars;
+          state.isLoading = false;
         } else {
           state.cars = [...state.cars, ...action.payload.cars];
+          state.isLoadingMore = false;
         }
         state.total = action.payload.totalCars;
       })
       .addCase(getCars.rejected, (state, action) => {
-        state.isLoading = false;
+        if (state.page === 1) {
+          state.isLoading = false;
+        } else {
+          state.isLoadingMore = false;
+        }
         state.error = action.payload;
       })
       .addCase(getCarById.pending, (state) => {

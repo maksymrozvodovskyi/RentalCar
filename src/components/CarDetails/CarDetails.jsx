@@ -8,11 +8,13 @@ import css from "./CarDetails.module.css";
 import container from "../../styles/container.module.css";
 import formatMileage from "../../utils/formatMileage.js";
 import BookingForm from "../BookingForm/BookingForm.jsx";
+import Loader from "../Loader/Loader.jsx";
 
 export default function CarDetails() {
   const { id } = useParams();
   const dispatch = useDispatch();
   const car = useSelector(selectCurrentCar);
+  const isLoading = useSelector(selectIsLoading);
 
   useEffect(() => {
     if (id) {
@@ -20,8 +22,8 @@ export default function CarDetails() {
     }
   }, [dispatch, id]);
 
-  if (!car) {
-    return <p>Loading</p>;
+  if (isLoading || !car) {
+    return <Loader size={80} color="#09f" />;
   }
 
   const { city, country } = parseAddress(car.address);
