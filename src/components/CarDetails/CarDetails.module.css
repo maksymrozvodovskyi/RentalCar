@@ -143,3 +143,13 @@
 .imageWrapper {
     margin-top: 84px;
 }
+
+.section {
+    padding-bottom: 104px;
+}
+
+.formWrap {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}

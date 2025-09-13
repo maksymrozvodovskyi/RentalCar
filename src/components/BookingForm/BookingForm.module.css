@@ -1,0 +1,100 @@
+.title {
+    font-family: "Manrope", sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 1.2;
+    color: #101828;
+}
+
+.description {
+    font-family: "Manrope", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.25;
+    color: #8d929a;
+    margin-top: 8px;
+    margin-bottom: 24px;
+}
+
+.textInput {
+    border-radius: 12px;
+    padding: 12px 20px;
+    width: 576px;
+    height: 48px;
+    background: #f7f7f7;
+    border: none;
+    outline: none;
+}
+
+.emailInput {
+    border-radius: 12px;
+    padding: 14px 20px;
+    width: 576px;
+    height: 48px;
+    background: #f7f7f7;
+    border: none;
+    outline: none;
+}
+
+
+
+.comment {
+    border-radius: 12px;
+    padding: 12px 20px 56px;
+    width: 576px;
+    height: 88px;
+    background: #f7f7f7;
+    resize: none;
+    border: none;
+    outline: none;
+}
+
+.comment,
+.dateInput,
+.emailInput,
+.textInput {
+    font-family: "Manrope", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.25;
+    color: #8d929a;
+    cursor: pointer;
+}
+
+.btn {
+    border-radius: 12px;
+    padding: 12px 51px;
+    width: 156px;
+    height: 44px;
+    background: #3470ff;
+    font-family: "Manrope", sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 1.25;
+    color: #fff;
+    display: block;
+    margin-top: 24px;
+    margin-left: auto;
+    margin-right: auto;
+    transition: background 0.3s ease-in;
+}
+
+.btn:hover,
+.btn:focus {
+    background: #0b44cd;
+}
+
+.form {
+    border: 1px solid #dadde1;
+    border-radius: 10px;
+    padding: 32px;
+    width: 640px;
+    height: 488px;
+    background: #fff;
+}
+
+.inputWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
