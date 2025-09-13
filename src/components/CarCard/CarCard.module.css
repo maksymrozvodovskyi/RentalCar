@@ -78,6 +78,10 @@
     fill: #3470ff;
 }
 
+.favoriteBtn svg {
+    transition: transform 0.3s ease, fill 0.3s ease;
+}
+
 .line {
     stroke-width: 1px;
     stroke: #dadde1;

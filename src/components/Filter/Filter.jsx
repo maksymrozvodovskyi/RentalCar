@@ -10,6 +10,7 @@ import { customSelectPriceStyles } from "./customSelectPriceStyles";
 import CustomSingleValue from "../CustomSingleValue/CustomSingleValue";
 import { priceOptions } from "../../constants/index";
 import { resetCars, setFilters } from "../../redux/cars/slice";
+import CustomDropdownIndicator from "../CustomDropdownIndicator/CustomDropdownIndicator";
 
 export default function Filter() {
   const dispatch = useDispatch();
@@ -62,6 +63,7 @@ export default function Filter() {
             styles={customSelectBrandStyles}
             components={{
               IndicatorSeparator: () => null,
+              DropdownIndicator: CustomDropdownIndicator,
             }}
             value={options.find((o) => o.value === filters.brand) || null}
             onChange={handleBrandChange}
@@ -79,6 +81,7 @@ export default function Filter() {
               SingleValue: (props) => (
                 <CustomSingleValue {...props} prefix="To $" /> // тут передаю префікс "To $"" аби відображалось в селекті + виніс кастомний компонент
               ),
+              DropdownIndicator: CustomDropdownIndicator,
             }}
             value={
               priceOptions.find((o) => o.value === filters.rentalPrice) || null
