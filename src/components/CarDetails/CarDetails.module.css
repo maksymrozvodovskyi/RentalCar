@@ -73,6 +73,26 @@
     column-gap: 16px;
 }
 
+.overall {
+    margin-top: 68px;
+}
+
 .location {
     margin-right: 4px;
+}
+
+.conditions {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.conditionsList {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.checkCircle {
+    margin-right: 8px;
 }

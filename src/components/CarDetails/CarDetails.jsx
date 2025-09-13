@@ -52,17 +52,22 @@ export default function CarDetails() {
         <p className={css.desc}>{car.description}</p>
         <p></p>
       </div>
-      <div>
-        <div>
-          <h3></h3>
-          <ul>
-            <li></li>
-            <li></li>
-            <li></li>
-          </ul>
+      <div className={css.overall}>
+        <div className={css.conditions}>
+          <h3>Rental Conditions: </h3>
+          <div>
+            <ul className={css.conditionsList}>
+              {car.rentalConditions.map((condition, key) => (
+                <li key={key}>
+                  <svg width={16} height={16} className={css.checkCircle}>
+                    <use href="/public/icons.svg#icon-check-circle"></use>
+                  </svg>
+                  {condition}
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
-        <div></div>
-        <div></div>
       </div>
     </div>
   );
