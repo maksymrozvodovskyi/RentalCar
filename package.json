@@ -12,10 +12,7 @@
   "dependencies": {
     "@reduxjs/toolkit": "^2.9.0",
     "axios": "^1.11.0",
-    "flatpickr": "^4.6.13",
     "react": "^19.1.1",
-    "react-datepicker": "^8.7.0",
-    "react-day-picker": "^9.9.0",
     "react-dom": "^19.1.1",
     "react-redux": "^9.2.0",
     "react-router-dom": "^7.8.2",

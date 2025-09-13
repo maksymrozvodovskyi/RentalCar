@@ -1,12 +1,28 @@
-# React + Vite
+# RentalCar
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Короткий опис
 
-Currently, two official plugins are available:
+Фронтенд веб-додатку для компанії "RentalCar", що надає послуги оренди автомобілів. Користувач може переглядати каталог автомобілів, фільтрувати їх за брендом, ціною та пробігом, додавати автомобілі до обраних, а також бронювати авто через форму на сторінці з деталями.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Основні функції
 
-## Expanding the ESLint configuration
+- Домашня сторінка з банером та кнопкою переходу до каталогу.
+- Каталог автомобілів із фільтрацією за брендом, ціною та пробігом.
+- Додавання автомобілів у список обраних із збереженням при оновленні сторінки.
+- Сторінка деталей автомобіля з описом, характеристиками та формою бронювання.
+- Форма бронювання із валідацією та нотифікацією про успішну оренду.
+- Пагінація з кнопкою "Load More" та lazy loading сторінок.
+- Loader під час асинхронних запитів.
+- Нотифікації через react-toastify.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Технології
+
+- React (Vite)
+- Redux Toolkit
+- React Router
+- Axios
+- CSS Modules
+- React-Toastify
+- React-Select
+- React-Spinners
+- Redux Persist
