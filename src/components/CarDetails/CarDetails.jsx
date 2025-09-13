@@ -30,6 +30,7 @@ export default function CarDetails() {
       {/* <div>
         <img width={640} height={512} src={car.img} className={css.img} />
       </div> */}
+
       <div className={css.infoWrapper}>
         <div className={css.mainInfo}>
           <h2 className={css.name}>
@@ -54,7 +55,7 @@ export default function CarDetails() {
       </div>
       <div className={css.overall}>
         <div className={css.conditions}>
-          <h3>Rental Conditions: </h3>
+          <h3 className={css.titte}>Rental Conditions: </h3>
           <div>
             <ul className={css.conditionsList}>
               {car.rentalConditions.map((condition, key) => (
@@ -65,6 +66,37 @@ export default function CarDetails() {
                   {condition}
                 </li>
               ))}
+            </ul>
+          </div>
+        </div>
+        <div>
+          <h3 className={css.titte}>Car Specifications:</h3>
+          <div>
+            <ul className={css.specifications}>
+              <li>
+                <svg width={16} height={16} className={css.checkCircle}>
+                  <use href="/public/icons.svg#icon-calendar"></use>
+                </svg>
+                Year: {car.year}
+              </li>
+              <li>
+                <svg width={16} height={16} className={css.checkCircle}>
+                  <use href="/public/icons.svg#icon-car"></use>
+                </svg>
+                Type: {car.type}
+              </li>
+              <li>
+                <svg width={16} height={16} className={css.checkCircle}>
+                  <use href="/public/icons.svg#icon-fuel-pump"></use>
+                </svg>
+                Fuel Consumption: {car.fuelConsumption}
+              </li>
+              <li>
+                <svg width={16} height={16} className={css.checkCircle}>
+                  <use href="/public/icons.svg#icon-gear"></use>
+                </svg>
+                Engine Size: {car.engineSize}
+              </li>
             </ul>
           </div>
         </div>
