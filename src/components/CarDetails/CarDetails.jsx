@@ -52,7 +52,7 @@ export default function CarDetails() {
                 <div className={css.cityWrapper}>
                   <p className={css.city}>
                     <svg width={16} height={16} className={css.location}>
-                      <use href="/public/icons.svg#icon-location"></use>
+                      <use href="/icons.svg#icon-location"></use>
                     </svg>
                     {city}, {country}
                   </p>
@@ -63,7 +63,6 @@ export default function CarDetails() {
                 <p className={css.price}>${car.rentalPrice}</p>
               </div>
               <p className={css.desc}>{car.description}</p>
-              <p></p>
             </div>
             <div className={css.overall}>
               <div className={css.conditions}>
@@ -73,7 +72,7 @@ export default function CarDetails() {
                     {car.rentalConditions.map((condition, key) => (
                       <li key={key}>
                         <svg width={16} height={16} className={css.checkCircle}>
-                          <use href="/public/icons.svg#icon-check-circle"></use>
+                          <use href="/icons.svg#icon-check-circle"></use>
                         </svg>
                         {condition}
                       </li>
@@ -87,25 +86,25 @@ export default function CarDetails() {
                   <ul className={css.specifications}>
                     <li>
                       <svg width={16} height={16} className={css.checkCircle}>
-                        <use href="/public/icons.svg#icon-calendar"></use>
+                        <use href="/icons.svg#icon-calendar"></use>
                       </svg>
                       Year: {car.year}
                     </li>
                     <li>
                       <svg width={16} height={16} className={css.checkCircle}>
-                        <use href="/public/icons.svg#icon-car"></use>
+                        <use href="/icons.svg#icon-car"></use>
                       </svg>
                       Type: {car.type}
                     </li>
                     <li>
                       <svg width={16} height={16} className={css.checkCircle}>
-                        <use href="/public/icons.svg#icon-fuel-pump"></use>
+                        <use href="/icons.svg#icon-fuel-pump"></use>
                       </svg>
                       Fuel Consumption: {car.fuelConsumption}
                     </li>
                     <li>
                       <svg width={16} height={16} className={css.checkCircle}>
-                        <use href="/public/icons.svg#icon-gear"></use>
+                        <use href="/icons.svg#icon-gear"></use>
                       </svg>
                       Engine Size: {car.engineSize}
                     </li>
@@ -119,7 +118,7 @@ export default function CarDetails() {
                     {car.accessories.map((accessorie, key) => (
                       <li key={key}>
                         <svg width={16} height={16} className={css.checkCircle}>
-                          <use href="/public/icons.svg#icon-check-circle"></use>
+                          <use href="/icons.svg#icon-check-circle"></use>
                         </svg>
                         {accessorie}
                       </li>
@@ -129,7 +128,7 @@ export default function CarDetails() {
                     {car.functionalities.map((functionality, key) => (
                       <li key={key}>
                         <svg width={16} height={16} className={css.checkCircle}>
-                          <use href="/public/icons.svg#icon-check-circle"></use>
+                          <use href="/icons.svg#icon-check-circle"></use>
                         </svg>
                         {functionality}
                       </li>

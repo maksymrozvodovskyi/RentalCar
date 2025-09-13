@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useMemo } from "react";
 import { selectFavorites } from "../../redux/favoritesCars/selectors.js";
 import { toggleFavorite } from "../../redux/favoritesCars/slice.js";
+import { toast } from "react-toastify";
 
 export default function CarCard({ car }) {
   const { city, country } = parseAddress(car.address);
@@ -19,6 +20,11 @@ export default function CarCard({ car }) {
 
   const handleFavoriteClick = () => {
     dispatch(toggleFavorite(car));
+    if (isFavorites) {
+      toast.info(`${car.brand} ${car.model} deleted from favorites`);
+    } else {
+      toast.success(`${car.brand} ${car.model} added to favorites`);
+    }
   };
 
   return (
