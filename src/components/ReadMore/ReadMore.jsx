@@ -10,7 +10,7 @@ export default function ReadMore({ id }) {
   };
 
   return (
-    <button className={css.readMore} onClick={handleClick}>
+    <button className={css.readMore} onClick={handleClick} id={id}>
       Read more
     </button>
   );

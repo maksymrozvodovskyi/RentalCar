@@ -22,7 +22,7 @@ export default function CarCard({ car }) {
   };
 
   return (
-    <div>
+    <>
       <div className={css.imgWrapper}>
         <img
           src={car.img}
@@ -72,8 +72,8 @@ export default function CarCard({ car }) {
             <span>{formatMileage(car.mileage)}</span>
           </li>
         </ul>
-        <ReadMore />
+        <ReadMore id={car.id} />
       </div>
-    </div>
+    </>
   );
 }
