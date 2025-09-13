@@ -3,9 +3,14 @@
 }
 
 .infoWrapper {
+    width: 488px;
+}
+
+.mainInfo {
     display: flex;
-    flex-direction: column;
-    gap: 32px;
+    flex-direction: row;
+    align-items: baseline;
+    column-gap: 16px;
 }
 
 .name {
@@ -13,7 +18,6 @@
     font-weight: 600;
     font-size: 24px;
     line-height: 1.33333;
-    text-align: center;
     color: #101828;
 }
 
@@ -23,6 +27,11 @@
     font-size: 16px;
     line-height: 1.25;
     color: #8d929a;
+
+    max-width: 64px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .city {
@@ -31,6 +40,8 @@
     font-size: 16px;
     line-height: 1.25;
     color: #101828;
+    display: flex;
+    align-items: center
 }
 
 .price {
@@ -47,4 +58,21 @@
     font-size: 16px;
     line-height: 1.25;
     color: #101828;
+    margin-top: 32px;
+}
+
+.carInfo {
+    margin-top: 8px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 16px;
+}
+
+.cityWrapper {
+    display: flex;
+    column-gap: 16px;
+}
+
+.location {
+    margin-right: 4px;
 }

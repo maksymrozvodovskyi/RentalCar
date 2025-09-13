@@ -31,18 +31,22 @@ export default function CarDetails() {
         <img width={640} height={512} src={car.img} className={css.img} />
       </div> */}
       <div className={css.infoWrapper}>
-        <h2 className={css.name}>
-          {car.brand} {car.model}, {car.year}
-        </h2>
-        <span className={css.id}> Id: {car.id}</span>
-        <div>
-          <svg width={16} height={16}>
-            <use href="/public/icons.svg#icon-location"></use>
-          </svg>
-          <p className={css.city}>
-            {city}, {country}
-          </p>
-          <p className={css.city}>Mileage: {formatMileage(car.mileage)}</p>
+        <div className={css.mainInfo}>
+          <h2 className={css.name}>
+            {car.brand} {car.model}, {car.year}
+          </h2>
+          <span className={css.id}> Id: {car.id}</span>
+        </div>
+        <div className={css.carInfo}>
+          <div className={css.cityWrapper}>
+            <p className={css.city}>
+              <svg width={16} height={16} className={css.location}>
+                <use href="/public/icons.svg#icon-location"></use>
+              </svg>
+              {city}, {country}
+            </p>
+            <p className={css.city}>Mileage: {formatMileage(car.mileage)}</p>
+          </div>
           <p className={css.price}>${car.rentalPrice}</p>
         </div>
         <p className={css.desc}>{car.description}</p>
