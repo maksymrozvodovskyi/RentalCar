@@ -28,7 +28,7 @@ export default function CarDetails() {
   return (
     <div className={container.container}>
       <div className={css.overallWrapper}>
-        <div>
+        <div className={css.imageWrapper}>
           <img width={640} height={512} src={car.img} className={css.img} />
         </div>
         <div className={css.wrapper}>
