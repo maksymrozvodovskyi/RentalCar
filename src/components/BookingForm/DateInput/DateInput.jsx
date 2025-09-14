@@ -19,6 +19,7 @@ export default function DateInput({ onChange }) {
       className={css.dateInput}
       dateFormat="dd/MM/yyyy"
       required
+      portalId="root-portal"
     />
   );
 }
