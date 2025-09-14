@@ -8,7 +8,9 @@ export default function DateInput({ onChange }) {
 
   const handleChange = (date) => {
     setSelectedDate(date);
-    if (onChange) onChange(date);
+    if (onChange) {
+      onChange(date);
+    }
   };
 
   return (
